@@ -36,6 +36,8 @@ const (
 	AMF_DEFAULT_PORT     = "8000"
 	AMF_DEFAULT_PORT_INT = 8000
 	AMF_DEFAULT_NRFURI   = "https://127.0.0.10:8000"
+	AMF_DEFAULT_TLS_KEY  = "free5gc/support/TLS/amf.key"
+	AMF_DEFAULT_TLS_PEM  = "free5gc/support/TLS/amf.pem"
 )
 
 type Mongodb struct {
@@ -155,9 +157,15 @@ type NetworkFeatureSupport5GS struct {
 
 type Sbi struct {
 	Scheme       string `yaml:"scheme"`
+	TLS          *TLS   `yaml:"tls,omitempty"`
 	RegisterIPv4 string `yaml:"registerIPv4,omitempty"` // IP that is registered at NRF.
 	BindingIPv4  string `yaml:"bindingIPv4,omitempty"`  // IP used to run the server in the node.
 	Port         int    `yaml:"port,omitempty"`
+}
+
+type TLS struct {
+	PEM string `yaml:"pem,omitempty"`
+	Key string `yaml:"key,omitempty"`
 }
 
 type Security struct {

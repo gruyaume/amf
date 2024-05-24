@@ -13,6 +13,9 @@ configuration:
     - 127.0.0.1
   sbi:
     scheme: https
+    tls:
+      key: /etc/sdcore/amf.key
+      pem: /etc/sdcore/amf.pem
     ipv4Addr: 127.0.0.1
     port: 29518
   serviceNameList:
